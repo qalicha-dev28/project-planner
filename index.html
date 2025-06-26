@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Organize Your Day</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom fonts from Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        .hero-title {
+            font-family: 'Chewy', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .hero-text {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .login-btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4 py-16 text-center">
+        <!-- Hero Content -->
+        <div class="max-w-3xl mx-auto">
+            <h1 class="hero-title text-5xl md:text-6xl font-bold text-purple-700 mb-6">
+                Plan Your Perfect Day
+            </h1>
+            <p class="hero-text text-xl md:text-2xl text-gray-700 mb-10">
+                Stay organized, motivated, and productive with our colorful daily planner. 
+                Make every day count and watch your progress grow!
+            </p>
+            
+            <!-- Motivational Quote -->
+            <div class="bg-white bg-opacity-70 rounded-lg p-4 mb-10 inline-block">
+                <p class="text-lg italic text-purple-600">
+                    "The secret of getting ahead is getting started." — Mark Twain
+                </p>
+            </div>
+            
+            <!-- Login Button -->
+            <button id="loginBtn" class="login-btn bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider flex items-center mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+                Get Started
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for login redirection -->
+    <script>
+        // Immediate function to handle the button click
+        (function() {
+            const loginBtn = document.getElementById('loginBtn');
+            
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    // For this demo, we'll just redirect
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = 'planner.html';
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

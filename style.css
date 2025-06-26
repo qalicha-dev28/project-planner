@@ -1,0 +1,165 @@
+/* style.css - Custom CSS to complement Tailwind */
+
+/* Base reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom font faces (if using any custom fonts not from Google Fonts) */
+@font-face {
+    font-family: 'MotivationalFont';
+    src: url('../fonts/motivational-font.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Custom animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Custom styles for elements that need precise control */
+.task-item::before {
+    content: "→";
+    margin-right: 0.5rem;
+    color: #8b5cf6; /* purple-500 */
+}
+
+/* Custom scrollbar styles (extends what's in the HTML) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4b5fd; /* purple-300 */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b5cf6; /* purple-500 */
+}
+
+/* Print-specific styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Custom utility classes that you use frequently */
+.text-shadow {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.text-shadow-md {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-lg {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom focus styles */
+.focus-purple:focus {
+    outline: 2px solid #8b5cf6; /* purple-500 */
+    outline-offset: 2px;
+}
+
+/* Custom transition effects */
+.transition-slow {
+    transition: all 0.5s ease;
+}
+
+/* Motivational quote styling */
+.motivational-quote {
+    position: relative;
+    padding-left: 1.5rem;
+    font-style: italic;
+}
+
+.motivational-quote::before {
+    content: open-quote;
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-size: 3rem;
+    color: #8b5cf6; /* purple-500 */
+    opacity: 0.3;
+}
+
+/* Custom checkbox style */
+.custom-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid #8b5cf6; /* purple-500 */
+    border-radius: 0.25em;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-checkbox:checked {
+    background-color: #8b5cf6; /* purple-500 */
+}
+
+.custom-checkbox:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 0.8em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Custom tooltip */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 5px);
+}

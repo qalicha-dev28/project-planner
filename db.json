@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Complete daily planner project",
+      "completed": false,
+      "createdAt": "2023-05-15T09:00:00Z"
+    },
+    {
+      "id": 2,
+      "text": "Study for math exam",
+      "completed": true,
+      "createdAt": "2023-05-14T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "text": "Go for a 30-minute walk",
+      "completed": false,
+      "createdAt": "2023-05-15T07:15:00Z"
+    }
+  ]
+}
