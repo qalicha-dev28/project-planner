@@ -1,5 +1,3 @@
-// planner.js - Complete working version
-
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
     if (!localStorage.getItem('isLoggedIn')) {
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateDateTime() {
         const now = new Date();
         
-        // Format date (e.g., "Monday, May 16, 2023")
+        // Format date 
         const options = { 
             weekday: 'long', 
             year: 'numeric', 
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         const dateString = now.toLocaleDateString('en-US', options);
         
-        // Format time (e.g., "2:45:30 PM")
+        // Format time 
         const timeString = now.toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: '2-digit',
@@ -129,9 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add event listeners
             const checkbox = taskElement.querySelector('.complete-checkbox');
             const deleteBtn = taskElement.querySelector('.delete-btn');
+            const editBtn = taskElement.querySelector('.edit-btn');
             
             checkbox.addEventListener('change', () => toggleComplete(task.id));
             deleteBtn.addEventListener('click', () => deleteTask(task.id));
+            editBtn.addEventListener('click', () => editTask(task.id));
         });
     }
 
@@ -154,6 +154,21 @@ document.addEventListener('DOMContentLoaded', function() {
         saveTasks();
         renderTasks();
         updateProgress();
+    }
+
+    // Edit a task - NEW FUNCTION
+    function editTask(taskId) {
+        const taskIndex = tasks.findIndex(task => task.id == taskId);
+        if (taskIndex === -1) return;
+        
+        const currentTask = tasks[taskIndex];
+        const newText = prompt('Edit your task:', currentTask.text);
+        
+        if (newText !== null && newText.trim() !== '') {
+            tasks[taskIndex].text = newText.trim();
+            saveTasks();
+            renderTasks();
+        }
     }
 
     // Update progress
